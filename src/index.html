@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Carteira Bitcoin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .output {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 300px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Carteira Bitcoin</h1>
+        <button onclick="generateWallet()">Gerar Carteira</button>
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        function generateWallet() {
+            fetch('/generate-wallet')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('output').innerHTML = `
+                        <p><strong>Endereço:</strong> ${data.address}</p>
+                        <p><strong>Chave Privada:</strong> ${data.privateKey}</p>
+                        <p><strong>Seed:</strong> ${data.seed}</p>
+                    `;
+                })
+                .catch(error => {
+                    document.getElementById('output').innerHTML = '<p>Erro ao gerar carteira.</p>';
+                    console.error('Erro:', error);
+                });
+        }
+    </script>
+</body>
+</html>
