@@ -22,6 +22,25 @@
             color: #333;
         }
 
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            background-color: #444444;
+            text-align: center;
+            color: white;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        header a:hover {
+            text-decoration: underline;
+        }
+
         /* Container principal */
         .container {
             text-align: center;
@@ -48,7 +67,7 @@
         button {
             padding: 12px 24px;
             font-size: 16px;
-            background-color: #4CAF50;
+            background-color: #444444;
             color: white;
             border: none;
             border-radius: 8px;
@@ -56,7 +75,7 @@
             transition: background-color 0.3s, transform 0.2s;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #444444;
             transform: scale(1.05);
         }
 
@@ -77,7 +96,7 @@
             margin: 10px 0;
         }
         .output strong {
-            color: #4e54c8;
+            color: #444444;
         }
 
         /* Rodapé */
@@ -87,7 +106,7 @@
             color: #666;
         }
         footer a {
-            color: #4CAF50;
+            color: #313131;
             text-decoration: none;
         }
         footer a:hover {
@@ -96,13 +115,22 @@
     </style>
 </head>
 <body>
+    <!-- Header com link para o código-fonte -->
+    <header>
+        <p>Confira o código-fonte deste projeto no <a href="https://github.com/Alekssandher/cripto-wallet" target="_blank">GitHub</a></p>
+    </header>
+
     <div class="container">
         <h1>Gerador de Carteira Bitcoin</h1>
         <button onclick="generateWallet()">Gerar Carteira</button>
         <div class="output" id="output"></div>
     </div>
 
-
+    <footer>
+        <p>Compre-me um café</p>
+        <p>chave Bitcoin: <a href="https://blockchain.com/btc/address/1KF8dBKSddnXs795J5UnEUxnYKsMCz68P3" target="_blank">1KF8dBKSddnXs795J5UnEUxnYKsMCz68P3</a></p>
+        <p>chave Bitcoin: <a href="https://www.blockchain.com/explorer/addresses/btc/bc1qxr20wjfwg8las3mdw27sn9yf3u7rjsfa095dqx" target="_blank">bc1qxr20wjfwg8las3mdw27sn9yf3u7rjsfa095dqx</a></p>
+    </footer>
 
     <script>
         function generateWallet() {
