@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Carteira Bitcoin</title>
+    <title class="title">Gerador de Carteira Bitcoin</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/img/favicoin.png/favicon-96x96.png" sizes="96x96" />
@@ -143,63 +143,65 @@
 <body>
     <!-- Header com link para o código-fonte -->
     <header>
-        <p>Confira o código-fonte deste projeto no <a href="https://github.com/Alekssandher/cripto-wallet" target="_blank">GitHub</a></p>
+        <p id="header">Confira o código-fonte deste projeto no <a href="https://github.com/Alekssandher/cripto-wallet" target="_blank">GitHub</a></p>
     </header>
 
     <div class="container">
-        <h1 id="title"></h1>
+        <h1 class="title">Gerador de Carteira Bitcoin</h1>
         <div class="warning">
-            <p id="warning"></p>
+            <p id="warning"><strong>Atenção:</strong> Nós não armazenamos as informações da sua carteira em nenhum lugar. É muito importante que você salve suas informações de backup para sua carteira não seja perdida.</p>
         </div>
-        <button id="generateButton" onclick="generateWallet()"></button>
+        <button onclick="generateWallet()" id="generate">Gerar Carteira</button>
         <div class="output" id="output"></div>
     </div>
 
     <footer>
-        <p>Compre-me um café</p>
-        <p>chave Bitcoin: <a href="https://blockchain.com/btc/address/1KF8dBKSddnXs795J5UnEUxnYKsMCz68P3" target="_blank">1KF8dBKSddnXs795J5UnEUxnYKsMCz68P3</a></p>
-        <p>chave Bitcoin: <a href="https://www.blockchain.com/explorer/addresses/btc/bc1qxr20wjfwg8las3mdw27sn9yf3u7rjsfa095dqx" target="_blank">bc1qxr20wjfwg8las3mdw27sn9yf3u7rjsfa095dqx</a></p>
+        <p id="cafe">Compre-me um café</p>
+        <p class="chaveBtc">chave Bitcoin: <a href="https://blockchain.com/btc/address/1KF8dBKSddnXs795J5UnEUxnYKsMCz68P3" target="_blank">1KF8dBKSddnXs795J5UnEUxnYKsMCz68P3</a></p>
+        <p class="chaveBtc">chave Bitcoin: <a href="https://www.blockchain.com/explorer/addresses/btc/bc1qxr20wjfwg8las3mdw27sn9yf3u7rjsfa095dqx" target="_blank">bc1qxr20wjfwg8las3mdw27sn9yf3u7rjsfa095dqx</a></p>
     </footer>
 
     <script>
-        // Objeto de traduções
-        const translations = {
-            'pt-BR': {
-                title: "Gerador de Carteira Bitcoin",
-                warning: "<strong>Atenção:</strong> Nós não armazenamos as informações da sua carteira em nenhum lugar. É muito importante que você salve suas informações de backup para que ela não seja perdida.",
-                generateButton: "Gerar Carteira",
-                error: "Erro ao gerar carteira."
-            },
-            'en-US': {
-                title: "Bitcoin Wallet Generator",
-                warning: "<strong>Attention:</strong> We do not store your wallet information anywhere. It is very important that you save your backup information to avoid loss.",
-                generateButton: "Generate Wallet",
-                error: "Error generating wallet."
-            }
-        };
 
-        // Detectar a localidade do usuário
         const userLang = navigator.language.startsWith('pt') ? 'pt-BR' : 'en-US';
 
-        // Aplicar traduções ao carregar a página
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('title').textContent = translations[userLang].title;
-            document.getElementById('warning').innerHTML = translations[userLang].warning;
-            document.getElementById('generateButton').textContent = translations[userLang].generateButton;
-        });
-
+        if (userLang == 'en-US') {
+            document.getElementById('cafe').innerText = 'Buy me a coffee'
+            document.getElementById('generate').innerText = 'Generate Wallet'
+            document.getElementsByClassName('title')[0].innerText = 'Bitcoin Wallet Generator'
+            document.getElementsByClassName('title')[1].innerText = 'Bitcoin Wallet Generator'
+            document.getElementById('warning').innerHTML = '<strong>Attention:</strong> We do not store your wallet information anywhere. It is very important that you save your backup information to avoid loss.'
+            document.getElementById('header').innerHTML = 'Check the source code of this project on <a href="https://github.com/Alekssandher/cripto-wallet" target="_blank">GitHub</a>'
+            document.getElementsByClassName('chaveBtc')[0].innerHTML = 'Bitcoin key: <a href="https://blockchain.com/btc/address/1KF8dBKSddnXs795J5UnEUxnYKsMCz68P3" target="_blank">1KF8dBKSddnXs795J5UnEUxnYKsMCz68P3</a>'
+            document.getElementsByClassName('chaveBtc')[1].innerHTML = 'Bitcoin key: <a href="https://www.blockchain.com/explorer/addresses/btc/bc1qxr20wjfwg8las3mdw27sn9yf3u7rjsfa095dqx" target="_blank">bc1qxr20wjfwg8las3mdw27sn9yf3u7rjsfa095dqx</a></p>'
+        }
+        
         function generateWallet() {
             fetch('/generate-wallet')
                 .then(response => response.json())
                 .then(data => {
+                    if (userLang == 'en-US'){
+                    document.getElementById('output').innerHTML = `
+                        <p><strong>Address:</strong> ${data.address}</p>
+                        <p><strong>Private key:</strong> ${data.privateKey}</p>
+                        <p><strong>Seed:</strong> ${data.seed}</p>
+                    `;
+                    }else {
                     document.getElementById('output').innerHTML = `
                         <p><strong>Endereço:</strong> ${data.address}</p>
                         <p><strong>Chave Privada:</strong> ${data.privateKey}</p>
                         <p><strong>Seed:</strong> ${data.seed}</p>
                     `;
+                }
                 })
                 .catch(error => {
-                    document.getElementById('output').innerHTML = `<p style="color:red;">${translations[userLang].error}</p>`;
+                    if (userLang == 'en-US'){ 
+                        document.getElementById('output').innerHTML = '<p style="color:red;">Error generating wallet.</p>';
+                    }
+                    else { 
+                        document.getElementById('output').innerHTML = '<p style="color:red;">Erro ao gerar carteira.</p>'; 
+                    }
+                    
                     console.error('Erro:', error);
                 });
         }
