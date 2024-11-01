@@ -147,11 +147,11 @@
     </header>
 
     <div class="container">
-        <h1>Gerador de Carteira Bitcoin</h1>
+        <h1 id="title"></h1>
         <div class="warning">
-            <p><strong>Atenção:</strong> Nós não armazenamos as informações da sua carteira em nenhum lugar. É muito importante que você salve suas informações de backup para que ela não seja perdida.</p>
+            <p id="warning"></p>
         </div>
-        <button onclick="generateWallet()">Gerar Carteira</button>
+        <button id="generateButton" onclick="generateWallet()"></button>
         <div class="output" id="output"></div>
     </div>
 
@@ -162,6 +162,32 @@
     </footer>
 
     <script>
+        // Objeto de traduções
+        const translations = {
+            'pt-BR': {
+                title: "Gerador de Carteira Bitcoin",
+                warning: "<strong>Atenção:</strong> Nós não armazenamos as informações da sua carteira em nenhum lugar. É muito importante que você salve suas informações de backup para que ela não seja perdida.",
+                generateButton: "Gerar Carteira",
+                error: "Erro ao gerar carteira."
+            },
+            'en-US': {
+                title: "Bitcoin Wallet Generator",
+                warning: "<strong>Attention:</strong> We do not store your wallet information anywhere. It is very important that you save your backup information to avoid loss.",
+                generateButton: "Generate Wallet",
+                error: "Error generating wallet."
+            }
+        };
+
+        // Detectar a localidade do usuário
+        const userLang = navigator.language.startsWith('pt') ? 'pt-BR' : 'en-US';
+
+        // Aplicar traduções ao carregar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('title').textContent = translations[userLang].title;
+            document.getElementById('warning').innerHTML = translations[userLang].warning;
+            document.getElementById('generateButton').textContent = translations[userLang].generateButton;
+        });
+
         function generateWallet() {
             fetch('/generate-wallet')
                 .then(response => response.json())
@@ -173,7 +199,7 @@
                     `;
                 })
                 .catch(error => {
-                    document.getElementById('output').innerHTML = '<p style="color:red;">Erro ao gerar carteira.</p>';
+                    document.getElementById('output').innerHTML = `<p style="color:red;">${translations[userLang].error}</p>`;
                     console.error('Erro:', error);
                 });
         }

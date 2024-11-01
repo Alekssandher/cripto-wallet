@@ -37,7 +37,7 @@ app.get('/generate-wallet', (req, res) => {
 });
 
 // Define a porta e inicia o servidor
-const PORT = 3000;
+const PORT = 3100;
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
