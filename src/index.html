@@ -166,6 +166,8 @@
         const userLang = navigator.language.startsWith('pt') ? 'pt-BR' : 'en-US';
 
         if (userLang == 'en-US') {
+            document.getElementsByTagName('description').innerText('Bitcoin wallet generator to create secure addresses and private keys.')
+            document.getElementsByTagName('keywords').innerText('Bitcoin, Wallet generator, Private key, Bitcoin security, Cryptocurrency')
             document.getElementById('cafe').innerText = 'Buy me a coffee'
             document.getElementById('generate').innerText = 'Generate Wallet'
             document.getElementsByClassName('title')[0].innerText = 'Bitcoin Wallet Generator'
@@ -175,7 +177,7 @@
             document.getElementsByClassName('chaveBtc')[0].innerHTML = 'Bitcoin key: <a href="https://blockchain.com/btc/address/1KF8dBKSddnXs795J5UnEUxnYKsMCz68P3" target="_blank">1KF8dBKSddnXs795J5UnEUxnYKsMCz68P3</a>'
             document.getElementsByClassName('chaveBtc')[1].innerHTML = 'Bitcoin key: <a href="https://www.blockchain.com/explorer/addresses/btc/bc1qxr20wjfwg8las3mdw27sn9yf3u7rjsfa095dqx" target="_blank">bc1qxr20wjfwg8las3mdw27sn9yf3u7rjsfa095dqx</a></p>'
         }
-        
+
         function generateWallet() {
             fetch('/generate-wallet')
                 .then(response => response.json())
