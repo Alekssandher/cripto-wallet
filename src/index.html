@@ -5,40 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Carteira Bitcoin</title>
     <style>
+        /* Estilos gerais */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f2f2f2;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #dedeeb, #c5c5c5);
+            color: #333;
         }
+
+        /* Container principal */
         .container {
             text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            transition: box-shadow 0.3s;
         }
+        .container:hover {
+            box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cabeçalho */
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Botão */
         button {
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-size: 16px;
             background-color: #4CAF50;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
         }
         button:hover {
             background-color: #45a049;
+            transform: scale(1.05);
         }
+
+        /* Saída */
         .output {
-            margin-top: 20px;
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
             text-align: left;
-            max-width: 300px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
             word-wrap: break-word;
+        }
+        .output p {
+            margin: 10px 0;
+        }
+        .output strong {
+            color: #4e54c8;
+        }
+
+        /* Rodapé */
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -48,6 +101,10 @@
         <button onclick="generateWallet()">Gerar Carteira</button>
         <div class="output" id="output"></div>
     </div>
+
+    <footer>
+        <p>Compre-me um café - chave Bitcoin: <a href="https://blockchain.com/btc/address/1KF8dBKSddnXs795J5UnEUxnYKsMCz68P3" target="_blank">1KF8dBKSddnXs795J5UnEUxnYKsMCz68P3</a></p>
+    </footer>
 
     <script>
         function generateWallet() {
@@ -61,7 +118,7 @@
                     `;
                 })
                 .catch(error => {
-                    document.getElementById('output').innerHTML = '<p>Erro ao gerar carteira.</p>';
+                    document.getElementById('output').innerHTML = '<p style="color:red;">Erro ao gerar carteira.</p>';
                     console.error('Erro:', error);
                 });
         }
