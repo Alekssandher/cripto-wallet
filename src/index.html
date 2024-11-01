@@ -78,6 +78,17 @@
             margin-bottom: 20px;
         }
 
+        /* Aviso */
+        .warning {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #ffdddd;
+            border-left: 4px solid #f44336;
+            color: #a94442;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
         /* Botão */
         button {
             padding: 12px 24px;
@@ -137,6 +148,9 @@
 
     <div class="container">
         <h1>Gerador de Carteira Bitcoin</h1>
+        <div class="warning">
+            <p><strong>Atenção:</strong> Nós não armazenamos as informações da sua carteira em nenhum lugar. É muito importante que você salve suas informações de backup para que ela não seja perdida.</p>
+        </div>
         <button onclick="generateWallet()">Gerar Carteira</button>
         <div class="output" id="output"></div>
     </div>
