@@ -39,6 +39,7 @@ The following libraries are used in the project:
 - **prompt-sync** - For synchronous user input reading.
 
 ## Installation
+>  *If you don't want to run the app through the source code, skip this step.*
 
 1. Clone this repository:
 
