@@ -2,6 +2,7 @@
 const bip32 = require('bip32')
 const bip39 =require('bip39')
 const bitcoin = require('bitcoinjs-lib')
+const prompt = require('prompt-sync')()
 
 //define a rede
 //bitcoin - rede princpal - mainNet 
@@ -31,3 +32,4 @@ console.log('Carteira gerada')
 console.log('Endereço: ', btcAddress)
 console.log('Chave privada: ', node.toWIF())
 console.log('Seed: ', mnemonic)
+prompt('Pressionar enter sairá imediatamente do programa\n')
