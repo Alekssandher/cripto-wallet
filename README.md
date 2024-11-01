@@ -5,6 +5,7 @@
 
 
 **Cripto Wallet** é um gerador de carteiras Bitcoin que permite criar endereços seguros, com chaves privadas e seed.
+> *Você pode estar executando ele através da web, localmente ou pelo executável. Conferir o indice.*
 ## Índice
 
 - [Versão Web](#versão-web)
