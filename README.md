@@ -3,71 +3,81 @@
     <img src="https://github.com/user-attachments/assets/8e6176a6-fe51-4b04-94b9-dfbae6aed13e" alt="Cripto Wallet"></div></br>
 </div>
 
+**Cripto Wallet** is a Bitcoin wallet generator that allows you to create secure addresses with private keys and seed phrases.
+> *You can run it via web, locally, or through the executable version. Check the index for details.*
 
-**Cripto Wallet** é um gerador de carteiras Bitcoin que permite criar endereços seguros, com chaves privadas e seed.
-> *Você pode estar executando ele através da web, localmente ou pelo executável. Conferir o indice.*
-## Índice
+## Table of Contents
 
-- [Versão Web](#versão-web)
-- [Pré-requisitos](#pré-requisitos)
-- [Instalação](#instalação)
-- [Executando o projeto](#executando-o-projeto)
-- [Dependências](#dependências)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
+- [Web Version](#web-version)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the Project](#running-the-project)
+- [Dependencies](#dependencies)
+- [Contribution](#contribution)
+- [License](#license)
 
-## Versão Web
-A versão web do Cripto Wallet permite que você acesse o gerador de carteiras diretamente em seu navegador, sem necessidade de instalação. Você pode utilizar todas as funcionalidades disponíveis na versão desktop. Para acessar a versão web, [visite este link](https://cripto-wallet.vercel.app/).
-## Pré-requisitos
+## Web Version
 
-Antes de executar o projeto, verifique se você possui as seguintes ferramentas instaladas:
+The web version of Cripto Wallet allows you to access the wallet generator directly from your browser, with no installation required. You can use all the features available in the desktop version. To access the web version, [visit this link](https://cripto-wallet.vercel.app/).
 
-- [Node.js](https://nodejs.org/) (versão 20.18)
-- [npm](https://www.npmjs.com/) (geralmente instalado junto com o Node.js)
-  
-## Dependências
-As seguintes bibliotecas são utilizadas no projeto:
+## Prerequisites
 
-- `bip32` - Para gerar hierarquias de chaves Bitcoin.
-- `bip39` - Para criar e verificar frases mnemônicas.
-- `bitcoinjs-lib` - Biblioteca para manipulação de transações Bitcoin.
-- `express` - Framework web para Node.js.
-- `nodemon` - Ferramenta para reinicializar automaticamente o servidor durante o desenvolvimento.
-- `prompt-sync` - Para ler entradas do usuário de forma síncrona.
-## Instalação
+Before running the project, make sure you have the following tools installed:
 
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/Alekssandher/cripto-wallet.git
-   ```
-2. Navegue até o diretório do projeto:
-   ```bash
-   cd cripto-wallet
-   ```
-   
-4. Instale as depêndencias:
-   ```bash
-   npm install
-   ```
-# Executando o projeto
-## Execução local
-Para iniciar o servidor localmente, utilize o seguinte comando:
-  ```bash
+- [Node.js](https://nodejs.org/) (version 20.18)
+- [npm](https://www.npmjs.com/) (typically installed with Node.js)
+
+## Dependencies
+
+The following libraries are used in the project:
+
+- **bip32** - For generating Bitcoin key hierarchies.
+- **bip39** - For creating and validating mnemonic phrases.
+- **bitcoinjs-lib** - A library for handling Bitcoin transactions.
+- **express** - A web framework for Node.js.
+- **nodemon** - A tool to automatically restart the server during development.
+- **prompt-sync** - For synchronous user input reading.
+
+## Installation
+
+1. Clone this repository:
+
+    ```bash
+    git clone https://github.com/Alekssandher/cripto-wallet.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd cripto-wallet
+    ```
+
+3. Install the dependencies:
+
+    ```bash
+    npm install
+    ```
+
+## Running the Project
+
+### Local Execution
+
+To start the server locally, use the following command:
+ ```bash
   npm start
   ```
-Ou
+Or, to start in development mode:
   ```bash
   npm run dev
   ```
-## Executável
-Este projeto também possui uma versão executável localizada na pasta `excs`. Para utilizá-la, siga as instruções abaixo:
-1. Navegue até a apsta `excs` e execute o programa.
+Executable Version
+This project also includes an executable version located in the `excs` folder. To use it, follow these steps:
+1. Navigate to the `excs` folder and run the program.
    
-## Contribuição
-Se você deseja contribuir com o projeto, sinta-se à vontade para abrir uma issue ou enviar um pull request. Toda contribuição é bem-vinda!
+## Contribution
+If you want to contribute to the project, feel free to open an issue or submit a pull request. All contributions are welcome!
 
-## Licença
+## License
+This project is licensed under the GNU General Public License (GPL) version 3. You are free to use, modify, and distribute this software, provided that all copies and derivatives are also licensed under GPL v3.
 
-Este projeto é licenciado sob a GNU General Public License (GPL) versão 3. Você é livre para usar, modificar e distribuir este software, desde que todas as cópias e derivações também sejam licenciadas sob a GPL v3.
-
-Para mais detalhes, consulte o arquivo `LICENSE` incluído neste repositório.
+For more details, see the `LICENSE` file included in this repository.
