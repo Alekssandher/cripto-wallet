@@ -39,7 +39,7 @@ The following libraries are used in the project:
 - **prompt-sync** - For synchronous user input reading.
 
 ## Installation
->  *If you don't want to run the app through the command line or don't want to install anything, skip this step.*
+>  *If you don't want to run the app through the command line or don't want to install anything, check the executable version.*
 
 1. Clone this repository:
 
@@ -71,7 +71,7 @@ Or, to start in development mode:
   ```bash
   npm run dev
   ```
-Executable Version
+## Executable Version
 This project also includes an executable version located in the `excs` folder. To use it, follow these steps:
 1. Navigate to the `excs` folder and run the program.
    
