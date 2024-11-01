@@ -6,7 +6,7 @@ const bitcoin = require('bitcoinjs-lib')
 //define a rede
 //bitcoin - rede princpal - mainNet 
 //testnet -rede de teste
-const network = bitcoin.networks.testnet
+const network = bitcoin.networks.bitcoin
 
 //derivação de carteiras hd
 const path = `m/49'/1'/0'/0`
